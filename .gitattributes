@@ -1,1 +1,2 @@
 * text=auto eol=lf
+tests/fixtures/finais-de-linha-crlf/* -text
