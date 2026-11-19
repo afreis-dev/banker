@@ -1,0 +1,130 @@
+Script started on 2026-11-18 23:16:43-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="94" LINES="61"]
+[?2004h]0;afreis@G1984O: ~/entrega[01;32mafreis@G1984O[00m:[01;34m~/entrega[00m$ [7mdate; whoami; pwd[27m
+[7mgit clone https://github.com/afreis-dev/banker.git && cd banker[27m
+[7mmake clean && make[27m
+[7mcp tests/fixtures/enunciado/customer.txt tests/fixtures/enunciado/commands.txt .[27m
+[7m./banker 10 5 7[27m
+[7mcmp result.txt tests/fixtures/enunciado/expected.txt && echo IGUAL[27m
+[7mmake test[27m
+[7mmake sanitize[27m[A[A[A[A[A[A[A]0;afreis@G1984O: ~/entrega[01;32mafreis@G1984O[00m:[01;34m~/entrega[00m$ date; whoami; pwd
+git clone https://github.com/afreis-dev/banker.git && cd banker
+make clean && make
+cp tests/fixtures/enunciado/customer.txt tests/fixtures/enunciado/commands.txt .
+./banker 10 5 7
+cmp result.txt tests/fixtures/enunciado/expected.txt && echo IGUAL
+make test
+make sanitize
+[?2004lWed Nov 18 23:16:49 -03 2026
+afreis
+/home/afreis/entrega
+Cloning into 'banker'...
+remote: Enumerating objects: 196, done.[K
+remote: Counting objects:   0% (1/196)[Kremote: Counting objects:   1% (2/196)[Kremote: Counting objects:   2% (4/196)[Kremote: Counting objects:   3% (6/196)[Kremote: Counting objects:   4% (8/196)[Kremote: Counting objects:   5% (10/196)[Kremote: Counting objects:   6% (12/196)[Kremote: Counting objects:   7% (14/196)[Kremote: Counting objects:   8% (16/196)[Kremote: Counting objects:   9% (18/196)[Kremote: Counting objects:  10% (20/196)[Kremote: Counting objects:  11% (22/196)[Kremote: Counting objects:  12% (24/196)[Kremote: Counting objects:  13% (26/196)[Kremote: Counting objects:  14% (28/196)[Kremote: Counting objects:  15% (30/196)[Kremote: Counting objects:  16% (32/196)[Kremote: Counting objects:  17% (34/196)[Kremote: Counting objects:  18% (36/196)[Kremote: Counting objects:  19% (38/196)[Kremote: Counting objects:  20% (40/196)[Kremote: Counting objects:  21% (42/196)[Kremote: Counting objects:  22% (44/196)[Kremote: Counting objects:  23% (46/196)[Kremote: Counting objects:  24% (48/196)[Kremote: Counting objects:  25% (49/196)[Kremote: Counting objects:  26% (51/196)[Kremote: Counting objects:  27% (53/196)[Kremote: Counting objects:  28% (55/196)[Kremote: Counting objects:  29% (57/196)[Kremote: Counting objects:  30% (59/196)[Kremote: Counting objects:  31% (61/196)[Kremote: Counting objects:  32% (63/196)[Kremote: Counting objects:  33% (65/196)[Kremote: Counting objects:  34% (67/196)[Kremote: Counting objects:  35% (69/196)[Kremote: Counting objects:  36% (71/196)[Kremote: Counting objects:  37% (73/196)[Kremote: Counting objects:  38% (75/196)[Kremote: Counting objects:  39% (77/196)[Kremote: Counting objects:  40% (79/196)[Kremote: Counting objects:  41% (81/196)[Kremote: Counting objects:  42% (83/196)[Kremote: Counting objects:  43% (85/196)[Kremote: Counting objects:  44% (87/196)[Kremote: Counting objects:  45% (89/196)[Kremote: Counting objects:  46% (91/196)[Kremote: Counting objects:  47% (93/196)[Kremote: Counting objects:  48% (95/196)[Kremote: Counting objects:  49% (97/196)[Kremote: Counting objects:  50% (98/196)[Kremote: Counting objects:  51% (100/196)[Kremote: Counting objects:  52% (102/196)[Kremote: Counting objects:  53% (104/196)[Kremote: Counting objects:  54% (106/196)[Kremote: Counting objects:  55% (108/196)[Kremote: Counting objects:  56% (110/196)[Kremote: Counting objects:  57% (112/196)[Kremote: Counting objects:  58% (114/196)[Kremote: Counting objects:  59% (116/196)[Kremote: Counting objects:  60% (118/196)[Kremote: Counting objects:  61% (120/196)[Kremote: Counting objects:  62% (122/196)[Kremote: Counting objects:  63% (124/196)[Kremote: Counting objects:  64% (126/196)[Kremote: Counting objects:  65% (128/196)[Kremote: Counting objects:  66% (130/196)[Kremote: Counting objects:  67% (132/196)[Kremote: Counting objects:  68% (134/196)[Kremote: Counting objects:  69% (136/196)[Kremote: Counting objects:  70% (138/196)[Kremote: Counting objects:  71% (140/196)[Kremote: Counting objects:  72% (142/196)[Kremote: Counting objects:  73% (144/196)[Kremote: Counting objects:  74% (146/196)[Kremote: Counting objects:  75% (147/196)[Kremote: Counting objects:  76% (149/196)[Kremote: Counting objects:  77% (151/196)[Kremote: Counting objects:  78% (153/196)[Kremote: Counting objects:  79% (155/196)[Kremote: Counting objects:  80% (157/196)[Kremote: Counting objects:  81% (159/196)[Kremote: Counting objects:  82% (161/196)[Kremote: Counting objects:  83% (163/196)[Kremote: Counting objects:  84% (165/196)[Kremote: Counting objects:  85% (167/196)[Kremote: Counting objects:  86% (169/196)[Kremote: Counting objects:  87% (171/196)[Kremote: Counting objects:  88% (173/196)[Kremote: Counting objects:  89% (175/196)[Kremote: Counting objects:  90% (177/196)[Kremote: Counting objects:  91% (179/196)[Kremote: Counting objects:  92% (181/196)[Kremote: Counting objects:  93% (183/196)[Kremote: Counting objects:  94% (185/196)[Kremote: Counting objects:  95% (187/196)[Kremote: Counting objects:  96% (189/196)[Kremote: Counting objects:  97% (191/196)[Kremote: Counting objects:  98% (193/196)[Kremote: Counting objects:  99% (195/196)[Kremote: Counting objects: 100% (196/196)[Kremote: Counting objects: 100% (196/196), done.[K
+remote: Compressing objects:   1% (1/86)[Kremote: Compressing objects:   2% (2/86)[Kremote: Compressing objects:   3% (3/86)[Kremote: Compressing objects:   4% (4/86)[Kremote: Compressing objects:   5% (5/86)[Kremote: Compressing objects:   6% (6/86)[Kremote: Compressing objects:   8% (7/86)[Kremote: Compressing objects:   9% (8/86)[Kremote: Compressing objects:  10% (9/86)[Kremote: Compressing objects:  11% (10/86)[Kremote: Compressing objects:  12% (11/86)[Kremote: Compressing objects:  13% (12/86)[Kremote: Compressing objects:  15% (13/86)[Kremote: Compressing objects:  16% (14/86)[Kremote: Compressing objects:  17% (15/86)[Kremote: Compressing objects:  18% (16/86)[Kremote: Compressing objects:  19% (17/86)[Kremote: Compressing objects:  20% (18/86)[Kremote: Compressing objects:  22% (19/86)[Kremote: Compressing objects:  23% (20/86)[Kremote: Compressing objects:  24% (21/86)[Kremote: Compressing objects:  25% (22/86)[Kremote: Compressing objects:  26% (23/86)[Kremote: Compressing objects:  27% (24/86)[Kremote: Compressing objects:  29% (25/86)[Kremote: Compressing objects:  30% (26/86)[Kremote: Compressing objects:  31% (27/86)[Kremote: Compressing objects:  32% (28/86)[Kremote: Compressing objects:  33% (29/86)[Kremote: Compressing objects:  34% (30/86)[Kremote: Compressing objects:  36% (31/86)[Kremote: Compressing objects:  37% (32/86)[Kremote: Compressing objects:  38% (33/86)[Kremote: Compressing objects:  39% (34/86)[Kremote: Compressing objects:  40% (35/86)[Kremote: Compressing objects:  41% (36/86)[Kremote: Compressing objects:  43% (37/86)[Kremote: Compressing objects:  44% (38/86)[Kremote: Compressing objects:  45% (39/86)[Kremote: Compressing objects:  46% (40/86)[Kremote: Compressing objects:  47% (41/86)[Kremote: Compressing objects:  48% (42/86)[Kremote: Compressing objects:  50% (43/86)[Kremote: Compressing objects:  51% (44/86)[Kremote: Compressing objects:  52% (45/86)[Kremote: Compressing objects:  53% (46/86)[Kremote: Compressing objects:  54% (47/86)[Kremote: Compressing objects:  55% (48/86)[Kremote: Compressing objects:  56% (49/86)[Kremote: Compressing objects:  58% (50/86)[Kremote: Compressing objects:  59% (51/86)[Kremote: Compressing objects:  60% (52/86)[Kremote: Compressing objects:  61% (53/86)[Kremote: Compressing objects:  62% (54/86)[Kremote: Compressing objects:  63% (55/86)[Kremote: Compressing objects:  65% (56/86)[Kremote: Compressing objects:  66% (57/86)[Kremote: Compressing objects:  67% (58/86)[Kremote: Compressing objects:  68% (59/86)[Kremote: Compressing objects:  69% (60/86)[Kremote: Compressing objects:  70% (61/86)[Kremote: Compressing objects:  72% (62/86)[Kremote: Compressing objects:  73% (63/86)[Kremote: Compressing objects:  74% (64/86)[Kremote: Compressing objects:  75% (65/86)[Kremote: Compressing objects:  76% (66/86)[Kremote: Compressing objects:  77% (67/86)[Kremote: Compressing objects:  79% (68/86)[Kremote: Compressing objects:  80% (69/86)[Kremote: Compressing objects:  81% (70/86)[Kremote: Compressing objects:  82% (71/86)[Kremote: Compressing objects:  83% (72/86)[Kremote: Compressing objects:  84% (73/86)[Kremote: Compressing objects:  86% (74/86)[Kremote: Compressing objects:  87% (75/86)[Kremote: Compressing objects:  88% (76/86)[Kremote: Compressing objects:  89% (77/86)[Kremote: Compressing objects:  90% (78/86)[Kremote: Compressing objects:  91% (79/86)[Kremote: Compressing objects:  93% (80/86)[Kremote: Compressing objects:  94% (81/86)[Kremote: Compressing objects:  95% (82/86)[Kremote: Compressing objects:  96% (83/86)[Kremote: Compressing objects:  97% (84/86)[Kremote: Compressing objects:  98% (85/86)[Kremote: Compressing objects: 100% (86/86)[Kremote: Compressing objects: 100% (86/86), done.[K
+remote: Total 196 (delta 41), reused 194 (delta 39), pack-reused 0 (from 0)[K
+Receiving objects:   0% (1/196)Receiving objects:   1% (2/196)Receiving objects:   2% (4/196)Receiving objects:   3% (6/196)Receiving objects:   4% (8/196)Receiving objects:   5% (10/196)Receiving objects:   6% (12/196)Receiving objects:   7% (14/196)Receiving objects:   8% (16/196)Receiving objects:   9% (18/196)Receiving objects:  10% (20/196)Receiving objects:  11% (22/196)Receiving objects:  12% (24/196)Receiving objects:  13% (26/196)Receiving objects:  14% (28/196)Receiving objects:  15% (30/196)Receiving objects:  16% (32/196)Receiving objects:  17% (34/196)Receiving objects:  18% (36/196)Receiving objects:  19% (38/196)Receiving objects:  20% (40/196)Receiving objects:  21% (42/196)Receiving objects:  22% (44/196)Receiving objects:  23% (46/196)Receiving objects:  24% (48/196)Receiving objects:  25% (49/196)Receiving objects:  26% (51/196)Receiving objects:  27% (53/196)Receiving objects:  28% (55/196)Receiving objects:  29% (57/196)Receiving objects:  30% (59/196)Receiving objects:  31% (61/196)Receiving objects:  32% (63/196)Receiving objects:  33% (65/196)Receiving objects:  34% (67/196)Receiving objects:  35% (69/196)Receiving objects:  36% (71/196)Receiving objects:  37% (73/196)Receiving objects:  38% (75/196)Receiving objects:  39% (77/196)Receiving objects:  40% (79/196)Receiving objects:  41% (81/196)Receiving objects:  42% (83/196)Receiving objects:  43% (85/196)Receiving objects:  44% (87/196)Receiving objects:  45% (89/196)Receiving objects:  46% (91/196)Receiving objects:  47% (93/196)Receiving objects:  48% (95/196)Receiving objects:  49% (97/196)Receiving objects:  50% (98/196)Receiving objects:  51% (100/196)Receiving objects:  52% (102/196)Receiving objects:  53% (104/196)Receiving objects:  54% (106/196)Receiving objects:  55% (108/196)Receiving objects:  56% (110/196)Receiving objects:  57% (112/196)Receiving objects:  58% (114/196)Receiving objects:  59% (116/196)Receiving objects:  60% (118/196)Receiving objects:  61% (120/196)Receiving objects:  62% (122/196)Receiving objects:  63% (124/196)Receiving objects:  64% (126/196)Receiving objects:  65% (128/196)Receiving objects:  66% (130/196)Receiving objects:  67% (132/196)Receiving objects:  68% (134/196)Receiving objects:  69% (136/196)Receiving objects:  70% (138/196)Receiving objects:  71% (140/196)Receiving objects:  72% (142/196)Receiving objects:  73% (144/196)Receiving objects:  74% (146/196)Receiving objects:  75% (147/196)Receiving objects:  76% (149/196)Receiving objects:  77% (151/196)Receiving objects:  78% (153/196)Receiving objects:  79% (155/196)Receiving objects:  80% (157/196)Receiving objects:  81% (159/196)Receiving objects:  82% (161/196)Receiving objects:  83% (163/196)Receiving objects:  84% (165/196)Receiving objects:  85% (167/196)Receiving objects:  86% (169/196)Receiving objects:  87% (171/196)Receiving objects:  88% (173/196)Receiving objects:  89% (175/196)Receiving objects:  90% (177/196)Receiving objects:  91% (179/196)Receiving objects:  92% (181/196)Receiving objects:  93% (183/196)Receiving objects:  94% (185/196)Receiving objects:  95% (187/196)Receiving objects:  96% (189/196)Receiving objects:  97% (191/196)Receiving objects:  98% (193/196)Receiving objects:  99% (195/196)Receiving objects: 100% (196/196)Receiving objects: 100% (196/196), 45.65 KiB | 22.82 MiB/s, done.
+Resolving deltas:   0% (0/41)Resolving deltas:   2% (1/41)Resolving deltas:   4% (2/41)Resolving deltas:   7% (3/41)Resolving deltas:   9% (4/41)Resolving deltas:  12% (5/41)Resolving deltas:  14% (6/41)Resolving deltas:  17% (7/41)Resolving deltas:  19% (8/41)Resolving deltas:  21% (9/41)Resolving deltas:  24% (10/41)Resolving deltas:  26% (11/41)Resolving deltas:  29% (12/41)Resolving deltas:  31% (13/41)Resolving deltas:  34% (14/41)Resolving deltas:  36% (15/41)Resolving deltas:  39% (16/41)Resolving deltas:  41% (17/41)Resolving deltas:  43% (18/41)Resolving deltas:  46% (19/41)Resolving deltas:  48% (20/41)Resolving deltas:  51% (21/41)Resolving deltas:  53% (22/41)Resolving deltas:  56% (23/41)Resolving deltas:  58% (24/41)Resolving deltas:  60% (25/41)Resolving deltas:  63% (26/41)Resolving deltas:  65% (27/41)Resolving deltas:  68% (28/41)Resolving deltas:  70% (29/41)Resolving deltas:  73% (30/41)Resolving deltas:  75% (31/41)Resolving deltas:  78% (32/41)Resolving deltas:  80% (33/41)Resolving deltas:  82% (34/41)Resolving deltas:  85% (35/41)Resolving deltas:  87% (36/41)Resolving deltas:  90% (37/41)Resolving deltas:  92% (38/41)Resolving deltas:  97% (40/41)Resolving deltas: 100% (41/41)Resolving deltas: 100% (41/41), done.
+rm -rf build banker
+mkdir -p build
+cc -std=c11 -Wall -Wextra -Wpedantic -O2 -MMD -MP -c src/banker.c -o build/banker.o
+cc -std=c11 -Wall -Wextra -Wpedantic -O2 -MMD -MP -c src/error.c -o build/error.o
+cc -std=c11 -Wall -Wextra -Wpedantic -O2 -MMD -MP -c src/input.c -o build/input.o
+cc -std=c11 -Wall -Wextra -Wpedantic -O2 -MMD -MP -c src/main.c -o build/main.o
+cc -std=c11 -Wall -Wextra -Wpedantic -O2 -MMD -MP -c src/output.c -o build/output.o
+cc -std=c11 -Wall -Wextra -Wpedantic -O2 build/banker.o build/error.o build/input.o build/main.o build/output.o -o banker 
+IGUAL
+sh tests/run.sh
+PASS argumento-gigante
+PASS argumento-invalido
+PASS argumento-negativo
+PASS argumentos-a-mais
+PASS argumentos-a-menos
+PASS claim-maior-que-total
+PASS commands-asterisco-com-texto
+PASS commands-byte-nulo
+PASS commands-cliente-inexistente
+PASS commands-cliente-negativo
+PASS commands-comando-invalido
+PASS commands-erro-no-fim
+PASS commands-recursos-faltando
+PASS commands-recursos-sobrando
+PASS commands-sem-cliente
+PASS commands-valor-negativo
+PASS commands-vazio
+PASS customer-byte-nulo
+PASS customer-coluna-extra
+PASS customer-coluna-faltando
+PASS customer-e-diretorio
+PASS customer-linha-em-branco
+PASS customer-valor-invalido
+PASS customer-vazio
+PASS customer-virgula-dupla
+PASS customer-virgula-final
+PASS dois-recursos
+PASS enunciado
+PASS finais-de-linha-crlf
+PASS linha-em-branco-no-inicio
+PASS linhas-em-branco
+PASS sem-argumentos
+PASS sem-commands
+PASS sem-customer
+PASS tabela-estavel
+35 passed, 0 failed
+make clean
+make[1]: Entering directory '/home/afreis/entrega/banker'
+rm -rf build banker
+make[1]: Leaving directory '/home/afreis/entrega/banker'
+make CFLAGS="-std=c11 -Wall -Wextra -Wpedantic -g -O1 -fno-omit-frame-pointer -fsanitize=address,undefined" test; status=$?; make clean; exit $status
+make[1]: Entering directory '/home/afreis/entrega/banker'
+mkdir -p build
+cc -std=c11 -Wall -Wextra -Wpedantic -g -O1 -fno-omit-frame-pointer -fsanitize=address,undefined -MMD -MP -c src/banker.c -o build/banker.o
+cc -std=c11 -Wall -Wextra -Wpedantic -g -O1 -fno-omit-frame-pointer -fsanitize=address,undefined -MMD -MP -c src/error.c -o build/error.o
+cc -std=c11 -Wall -Wextra -Wpedantic -g -O1 -fno-omit-frame-pointer -fsanitize=address,undefined -MMD -MP -c src/input.c -o build/input.o
+cc -std=c11 -Wall -Wextra -Wpedantic -g -O1 -fno-omit-frame-pointer -fsanitize=address,undefined -MMD -MP -c src/main.c -o build/main.o
+cc -std=c11 -Wall -Wextra -Wpedantic -g -O1 -fno-omit-frame-pointer -fsanitize=address,undefined -MMD -MP -c src/output.c -o build/output.o
+cc -std=c11 -Wall -Wextra -Wpedantic -g -O1 -fno-omit-frame-pointer -fsanitize=address,undefined build/banker.o build/error.o build/input.o build/main.o build/output.o -o banker 
+sh tests/run.sh
+PASS argumento-gigante
+PASS argumento-invalido
+PASS argumento-negativo
+PASS argumentos-a-mais
+PASS argumentos-a-menos
+PASS claim-maior-que-total
+PASS commands-asterisco-com-texto
+PASS commands-byte-nulo
+PASS commands-cliente-inexistente
+PASS commands-cliente-negativo
+PASS commands-comando-invalido
+PASS commands-erro-no-fim
+PASS commands-recursos-faltando
+PASS commands-recursos-sobrando
+PASS commands-sem-cliente
+PASS commands-valor-negativo
+PASS commands-vazio
+PASS customer-byte-nulo
+PASS customer-coluna-extra
+PASS customer-coluna-faltando
+PASS customer-e-diretorio
+PASS customer-linha-em-branco
+PASS customer-valor-invalido
+PASS customer-vazio
+PASS customer-virgula-dupla
+PASS customer-virgula-final
+PASS dois-recursos
+PASS enunciado
+PASS finais-de-linha-crlf
+PASS linha-em-branco-no-inicio
+PASS linhas-em-branco
+PASS sem-argumentos
+PASS sem-commands
+PASS sem-customer
+PASS tabela-estavel
+35 passed, 0 failed
+make[1]: Leaving directory '/home/afreis/entrega/banker'
+make[1]: Entering directory '/home/afreis/entrega/banker'
+rm -rf build banker
+make[1]: Leaving directory '/home/afreis/entrega/banker'
+[?2004h]0;afreis@G1984O: ~/entrega/banker[01;32mafreis@G1984O[00m:[01;34m~/entrega/banker[00m$ [7mexit[27mexit
+[?2004lexit
+
+Script done on 2026-11-18 23:18:14-03:00 [COMMAND_EXIT_CODE="0"]
