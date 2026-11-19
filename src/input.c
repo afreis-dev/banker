@@ -13,6 +13,7 @@
 #include "input.h"
 
 #define SEPARATORS " \t\r\n\v\f"
+#define TOKEN_PREVIEW_SIZE 48
 
 static bool parse_int(const char *begin, const char *end, int *value)
 {
@@ -56,6 +57,30 @@ static bool is_blank(const char *line)
     return true;
 }
 
+static const char *preview(const char *text, char *buffer, size_t size)
+{
+    size_t length = 0;
+
+    for (; *text != '\0' && length + 4 < size; text++) {
+        buffer[length++] = isprint((unsigned char)*text) ? *text : '?';
+    }
+    if (*text != '\0') {
+        memcpy(buffer + length, "...", 3);
+        length += 3;
+    }
+    buffer[length] = '\0';
+    return buffer;
+}
+
+static bool has_nul(const char *line, ssize_t length, const char *path, long number)
+{
+    if (memchr(line, '\0', (size_t)length) == NULL) {
+        return false;
+    }
+    report_error("%s:%ld: the file contains a NUL byte, it is not a plain text file", path, number);
+    return true;
+}
+
 static int *grow_matrix(int *matrix, size_t rows, size_t width)
 {
     if (width == 0 || rows > SIZE_MAX / sizeof(int) / width) {
@@ -90,7 +115,9 @@ bool parse_resources(int argc, char **argv, int *resources, int **total)
 
     for (int i = 0; i < count; i++) {
         if (!parse_token(argv[i + 1], &values[i])) {
-            report_error("invalid argument '%s': expected a non-negative integer number of instances", argv[i + 1]);
+            char shown[TOKEN_PREVIEW_SIZE];
+            report_error("invalid argument '%s': expected a non-negative integer number of instances",
+                         preview(argv[i + 1], shown, sizeof(shown)));
             free(values);
             return false;
         }
@@ -111,13 +138,14 @@ static bool parse_customer_line(const char *line, int resources, int *values, co
         const char *end = comma != NULL ? comma : start + strlen(start);
         int value;
 
+        if (!parse_int(start, end, &value)) {
+            report_error("%s:%ld: invalid or empty value in column %d, expected non-negative integers separated by commas",
+                         path, number, index + 1);
+            return false;
+        }
         if (index == resources) {
             report_error("%s:%ld: more than %d values on the line, but the program received %d resource arguments",
                          path, number, resources, resources);
-            return false;
-        }
-        if (!parse_int(start, end, &value)) {
-            report_error("%s:%ld: invalid value, expected non-negative integers separated by commas", path, number);
             return false;
         }
 
@@ -151,12 +179,16 @@ bool load_customers(const char *path, int resources, CustomerTable *table)
     long number = 0;
     long blank_line = 0;
     bool ok = false;
+    ssize_t length;
 
-    while (getline(&line, &line_size, file) != -1) {
+    while ((length = getline(&line, &line_size, file)) != -1) {
         number++;
 
+        if (has_nul(line, length, path, number)) {
+            goto done;
+        }
         if (is_blank(line)) {
-            if (blank_line == 0) {
+            if (rows != 0 && blank_line == 0) {
                 blank_line = number;
             }
             continue;
@@ -245,6 +277,7 @@ static bool append_command(CommandList *list, CommandType type, int customer, co
 static bool parse_command_line(char *line, CommandList *list, int customers, int *amounts,
                                const char *path, long number)
 {
+    char shown[TOKEN_PREVIEW_SIZE];
     char *save = NULL;
     char *name = strtok_r(line, SEPARATORS, &save);
     if (name == NULL) {
@@ -265,14 +298,20 @@ static bool parse_command_line(char *line, CommandList *list, int customers, int
     } else if (strcmp(name, "RL") == 0) {
         type = COMMAND_RELEASE;
     } else {
-        report_error("%s:%ld: unknown command '%s', expected RQ, RL or *", path, number, name);
+        report_error("%s:%ld: unknown command '%s', expected RQ, RL or *", path, number,
+                     preview(name, shown, sizeof(shown)));
         return false;
     }
 
     int customer;
     char *token = strtok_r(NULL, SEPARATORS, &save);
-    if (token == NULL || !parse_token(token, &customer)) {
+    if (token == NULL) {
         report_error("%s:%ld: expected a customer number after '%s'", path, number, name);
+        return false;
+    }
+    if (!parse_token(token, &customer)) {
+        report_error("%s:%ld: invalid customer number '%s', expected a non-negative integer", path, number,
+                     preview(token, shown, sizeof(shown)));
         return false;
     }
     if (customer >= customers) {
@@ -289,7 +328,8 @@ static bool parse_command_line(char *line, CommandList *list, int customers, int
             return false;
         }
         if (!parse_token(token, &amounts[j])) {
-            report_error("%s:%ld: invalid amount '%s', expected a non-negative integer", path, number, token);
+            report_error("%s:%ld: invalid amount '%s', expected a non-negative integer", path, number,
+                         preview(token, shown, sizeof(shown)));
             return false;
         }
     }
@@ -316,14 +356,18 @@ bool load_commands(const char *path, int resources, int customers, CommandList *
     size_t line_size = 0;
     long number = 0;
     bool ok = false;
+    ssize_t length;
 
     if (amounts == NULL) {
         report_error("out of memory");
         goto done;
     }
 
-    while (getline(&line, &line_size, file) != -1) {
+    while ((length = getline(&line, &line_size, file)) != -1) {
         number++;
+        if (has_nul(line, length, path, number)) {
+            goto done;
+        }
         if (!parse_command_line(line, list, customers, amounts, path, number)) {
             goto done;
         }
