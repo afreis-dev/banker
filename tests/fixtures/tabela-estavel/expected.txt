@@ -1,0 +1,14 @@
+MAXIMUM      |   ALLOCATION     |   NEED
+10 10 10     |   0 0 0          |   10 10 10 
+5 5 5        |   0 0 0          |   5 5 5 
+AVAILABLE 20 20 20 
+Allocate to customer 0 the resources 10 10 10
+MAXIMUM      |   ALLOCATION     |   NEED
+10 10 10     |   10 10 10       |   0 0 0 
+5 5 5        |   0 0 0          |   5 5 5 
+AVAILABLE 10 10 10 
+Release from customer 0 the resources 10 10 10
+MAXIMUM      |   ALLOCATION     |   NEED
+10 10 10     |   0 0 0          |   10 10 10 
+5 5 5        |   0 0 0          |   5 5 5 
+AVAILABLE 20 20 20 
