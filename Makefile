@@ -24,8 +24,7 @@ test: $(TARGET)
 
 sanitize:
 	$(MAKE) clean
-	$(MAKE) CFLAGS="$(SANITIZE_FLAGS)" test
-	$(MAKE) clean
+	$(MAKE) CFLAGS="$(SANITIZE_FLAGS)" test; status=$$?; $(MAKE) clean; exit $$status
 
 clean:
 	rm -rf build $(TARGET)
