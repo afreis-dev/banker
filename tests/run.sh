@@ -3,8 +3,9 @@
 root=$(cd "$(dirname "$0")/.." && pwd)
 banker="$root/banker"
 fixtures="$root/tests/fixtures"
-work=$(mktemp -d)
-trap 'rm -rf "$work"' EXIT INT TERM
+work=$(mktemp -d) || { echo "cannot create a temporary directory"; exit 1; }
+trap 'rm -rf "$work"' EXIT
+trap 'exit 1' INT TERM
 
 if [ ! -x "$banker" ]; then
     echo "banker binary not found, run make first"
