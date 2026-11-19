@@ -64,7 +64,7 @@ RL 0 0 1 1
 RQ 4 4 0 0
 ```
 
-Linhas em branco são ignoradas em `commands.txt`. Em `customer.txt` só são aceitas linhas em branco no fim do arquivo. Finais de linha `\n` e `\r\n` são aceitos nos dois arquivos.
+Linhas em branco são ignoradas em `commands.txt`. Em `customer.txt` são aceitas linhas em branco no início e no fim do arquivo, mas não entre clientes. Finais de linha `\n` e `\r\n` são aceitos nos dois arquivos.
 
 ## Saída
 
@@ -116,7 +116,8 @@ O programa valida tudo antes de começar a executar os comandos. Quando encontra
 - número de argumentos diferente do número de valores por linha em `customer.txt` (para mais ou para menos);
 - número de recursos em um comando diferente do número de argumentos;
 - `customer.txt` ou `commands.txt` inexistente, sem permissão de leitura, vazio ou que é um diretório;
-- valores inválidos em `customer.txt` (letras, negativos, vírgulas duplas, linha em branco entre clientes);
+- valores inválidos ou vazios em `customer.txt` (letras, negativos, vírgula dupla ou final) e linha em branco entre clientes;
+- bytes NUL em `customer.txt` ou `commands.txt` (arquivo binário ou UTF-16);
 - comando desconhecido, cliente inexistente, valores faltando ou sobrando e texto depois de `*` em `commands.txt`;
 - falha ao criar ou gravar o `result.txt`.
 
