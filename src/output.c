@@ -105,7 +105,7 @@ void output_state(FILE *out, const Banker *banker)
 
     for (int i = 0; i < banker->customers; i++) {
         int first_needed = each_length(banker_row(banker, banker->maximum, i), resources) + FIRST_COLUMN_MARGIN;
-        int second_needed = each_length(banker_row(banker, banker->allocation, i), resources) + SECOND_COLUMN_MARGIN;
+        int second_needed = each_length(banker_row(banker, banker->maximum, i), resources) + SECOND_COLUMN_MARGIN;
         if (first_needed > first) {
             first = first_needed;
         }
